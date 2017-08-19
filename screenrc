@@ -1,0 +1,38 @@
+startup_message off
+#screen -t wxDB			13 $HOME/.bin/db_wx  
+screen -t Xterm            	1 bash
+screen -t Terminal -h 2000	2 bash 
+screen -t Bash			3 bash 
+screen -t Konsole   -h 2000	4 bash 
+screen -t Console   -h 2000	5 bash 
+screen -t Audio             	6 alsamixer 
+screen -t Music		   	7 ncmpcpp 
+screen -t Python           	8 ipython 
+screen -t Mongo	-h 2000		9 mongo
+#screen -t wxAPI			10 $HOME/.bin/api_wx  
+#screen -t wxWEB			11 $HOME/.bin/web_wx  
+#screen -t wxDIR			12 $HOME/.bin/repos_wx  
+screen -t Cassandra		0 cqlsh localhost 
+hardstatus alwayslastline '%{= M} %H%{= G} [%l] %= %{= w}%-w%{+b r}%n*%t%{-b r}%{w}%+w %= %{c}%d %D %{B}%C%a '
+
+bindkey -m ^[[1;5D prev
+bindkey -m ^[[1;5C next
+bindkey -m ^[[1;2D prev
+bindkey -m ^[[1;2C next
+
+#screen key binding
+bind -c demo1 0 select 10
+bind -c demo1 1 select 11
+bind -c demo1 2 select 12
+bind -c demo1 3 select 13
+bind -c demo1 4 select 14
+bind -c demo1 5 select 15
+bind -c demo1 6 select 16
+bind -c demo1 7 select 17
+bind -c demo1 8 select 18
+
+#create a binding for screens with numbers greater than 9
+bindkey "^Z" command -c demo1
+
+#default selection for the screen
+select 1
